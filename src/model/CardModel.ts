@@ -2,14 +2,12 @@ import { faker } from '@faker-js/faker';
 import { format } from 'date-fns'
 
 import BaseModel from './BaseModel';
-import GroupModel from './GroupModel';
 import TagModel from './TagModel ';
 import { Variant } from '../types/common';
 import uuid from '../utils/uuid';
 
 class CardModel extends BaseModel {
   override items: TagModel[] = [];
-  override parent: GroupModel | null  = null;
 
   userId = uuid();
 
@@ -36,10 +34,9 @@ class CardModel extends BaseModel {
       description,
       items: [],
       isEdit: false,
-      parent: undefined,
+      parent,
     });
   
-    this.parent = parent;
     this.description =  faker.lorem.text();
     
     this.variant = variant;

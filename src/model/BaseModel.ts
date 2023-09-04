@@ -28,25 +28,9 @@ class BaseModel {
     ];
   };
 
-  protected removeItem = (removedItem: BaseModel) => {
-    this.items = this.items.filter((model) => model.id !== removedItem.id);
-  };
-
-  removeItemById = (id: string) => {
-    this.items = this.items.filter((model) => model.id !== id);
-  }
-
-  removeFromParent = () => {
-    this.parent?.removeItemById(this.id);
-  }
-
   makeClass = (classes: string[]) => createClass(classes);
 
   didUpdate = () => {};
-
-  setEdit = (newEdit: boolean) => {
-    this.isEdit = newEdit;
-  };
 
   get id() {
     return this.__id;
