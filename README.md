@@ -4,6 +4,7 @@
 
 [Base on @AntonChanin/task-manager](https://github.com/AntonChanin/task-manager/tree/develop)
 
+[Deploy by netlify](https://effervescent-hamster-9c99fa.netlify.app/)
 
 ### Установка
 
