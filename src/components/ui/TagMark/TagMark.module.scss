@@ -1,0 +1,29 @@
+@import '../../../assets/styles/variability.scss';
+
+.tag {
+    &Wrapper {
+        display: flex;
+        height: 20px;
+    }
+    &Mark {
+        padding: 1px 6px 2px 6px;
+        border-radius: 4px;
+        gap: 8px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        height: 20px;
+        
+        &.primary {
+            background-color: $primaryBgActiveElement;
+            color: $whiteColor;
+        }
+
+        &.secondary {
+            background-color: $secondaryBgActiveElement;
+            color: $secondaryColor;
+            border-radius: 4px 0 0px 4px;
+        }
+    }
+}
+

@@ -1,0 +1,23 @@
+@import '../../../assets/styles/variability.scss';
+
+.paper {
+    flex-direction: column;
+    width: 100%;
+    color: $primaryColor;
+    box-shadow: none;
+
+    .title {
+        margin: 8px 0;
+        width: max-content;
+    }
+    
+    .group {
+        display: flex;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: 95%;
+        justify-content: space-around;
+        padding-bottom: 5px;    
+    }
+}

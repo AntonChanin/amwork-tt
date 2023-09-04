@@ -1,0 +1,9 @@
+@import '../../../assets/styles/variability.scss';
+
+.paper {
+    background-color: $whiteColor;
+    padding: 10px;
+    border-radius: 7px;
+    gap: 8px;
+    box-shadow: 0px 1px 2px 0px #D0DAEB, 0px 0px 2px 0px #EEF4FE;
+}
