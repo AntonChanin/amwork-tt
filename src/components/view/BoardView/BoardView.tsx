@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import Paper from '../../ui/Paper/Paper';
 import BoardModel from '../../../model/BoardModel';
+import GroupModel from '../../../model/GroupModel';
 import GroupView from '../GroupView/GroupView';
 import InstanceTaskManagerStore from '../../../store';
 import useUpdate from '../../../hooks/useUpdate';
@@ -26,7 +27,7 @@ const BoardView: FC<ViewWithModel<BoardModel>> = (props) => {
       className={styles.paper}
     >
       <div className={styles.group}>
-        {groups.map((group) => <GroupView key={`group__${group.id}`} model={group}/>)}
+        {groups.map((group) => <GroupView key={`group__${group.id}`} model={group as GroupModel} />)}
       </div>     
     </Paper>    
   );
