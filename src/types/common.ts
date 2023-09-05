@@ -36,13 +36,6 @@ type VoidCallback = {
   callback(): void;
 };
 
-/**
- * @description callback return void
- */
-type VoidCallbackWithProps = {
-  callback<T>(props: Record<string, T>): void;
-};
-
 type VoidCallbackWithWrapProps = {
   callback: <T>() => (props: Record<string, T>) => void;
 };
@@ -55,7 +48,6 @@ export type {
   StylesProps,
   ClickButton,
   VoidCallback,
-  VoidCallbackWithProps,
   VoidCallbackWithWrapProps,
   Variant,
 };

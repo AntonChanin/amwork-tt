@@ -1,4 +1,4 @@
-import { BaseComponentProps, StylesProps, VoidCallbackWithProps, ClickButton, VoidCallback } from './common';
+import { BaseComponentProps, StylesProps, ClickButton, VoidCallback } from './common';
 
 type ArticleProps = BaseComponentProps & StylesProps;
 
@@ -8,6 +8,4 @@ type TagMarkProps = BaseComponentProps & StylesProps;
 
 type PaperProps = StylesProps;
 
-type EditProps = BaseComponentProps & StylesProps & VoidCallbackWithProps;
-
-export type { ArticleProps, ButtonProps, TagMarkProps, PaperProps, EditProps };
+export type { ArticleProps, ButtonProps, TagMarkProps, PaperProps };

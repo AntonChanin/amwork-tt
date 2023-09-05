@@ -37,7 +37,14 @@
 
         .cards {
             overflow-y: auto;
-            max-height: 84vh;
+            max-height: 80vh;
+        }
+
+        .moreButton {
+            margin-top: 8px;
+            &.noMore {
+                opacity: 0.5;
+            }
         }
     }
     ::-webkit-scrollbar {

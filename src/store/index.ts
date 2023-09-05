@@ -10,12 +10,23 @@ class TaskManagerStore {
   boards: BoardModel[] = [];
   groupIds: string[] = [];
   cardIds: string[] = [];
+  page: number = 0;
+  maxCards: number = 200;
+  isEnd = false;
+  user = {
+    userId: '1',
+    avatar: faker.image.avatar(),
+  }
 
   constructor() {
     makeObservable(this, {
+      user: observable,
       boards: observable,
       groupIds: observable,
       cardIds: observable,
+      page: observable,
+      maxCards: observable,
+      isEnd: observable,
       addBoard: action.bound,
       addCardId: action.bound,
       addGroupId: action.bound,
@@ -55,9 +66,9 @@ class TaskManagerStore {
   }
 
   getTodo = async () => {
-    const avatar = faker.image.avatar();
+    const avatar = this.user.avatar;
     const todo = async () => {
-      const td = await getTodo();
+      const td = await getTodo({ page: this.page, limit: 10 });
       const cards = (td.data as {
         userId: number;
         id: number;
@@ -77,19 +88,30 @@ class TaskManagerStore {
           })
         )
       );
-      this.boards[0].items[0].items = [...cards];
+      this.boards[0].items[0].items = [...this.boards[0].items[0].items, ...cards];
       this.cardIds = cards.map(({ id }) => id);
     };
-    todo();
+    if (this.boards[0].items[0].items.length >= this.maxCards) {
+      this.isEnd = true;
+    } else {
+      todo();
+    }
+    this.page += 1;
   } 
 }
 
 const InstanceTaskManagerStore =  new TaskManagerStore();
 
-InstanceTaskManagerStore.addBoard(new BoardModel({ name: 'test', description: '', parent: new BaseModel({
-  name: 'root',
-  description: '',
-  parent: undefined,
-}) }))
+InstanceTaskManagerStore.addBoard(
+  new BoardModel({
+    name: 'test',
+    description: '', 
+    parent: new BaseModel({
+      name: 'root',
+      description: '',
+      parent: undefined,
+    })
+  })
+);
 
 export default InstanceTaskManagerStore;

@@ -12,7 +12,7 @@ const TagMark: FC<PropsWithChildren<Partial<TagMarkProps>>> = (props) => {
     variant = 'primary',
     children,
   } = props;
-  console.log(value, variant)
+
   return (
     <div className={createClass([styles.tagWrapper])}>
       <div className={createClass([styles.tagMark, styles[variant], `${className}`])}>
