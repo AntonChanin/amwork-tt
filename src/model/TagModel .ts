@@ -1,13 +1,8 @@
-import { BaseProps } from '../types/model';
 import BaseModel from './BaseModel';
-import CardModel from './CardModel';
-
-type Props<P = CardModel> = BaseProps & {
-  parent: P;
-}
+import { TagProps } from '../types/model';
 
 class TagModel extends BaseModel {
-  constructor(options: Props) {
+  constructor(options: TagProps) {
     const { name, description, parent } = options;
     super({
       name,

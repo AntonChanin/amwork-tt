@@ -76,9 +76,8 @@ class TaskManagerStore {
         completed: boolean;
     }[])
       .map(
-        ({ id, userId, title, completed }) => (
+        ({ userId, title, completed }) => (
           new CardModel({
-            id: `${id}`,
             name: title,
             userId: `${userId}`,
             isEdit: completed,

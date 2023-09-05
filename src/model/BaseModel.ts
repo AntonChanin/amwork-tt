@@ -1,3 +1,4 @@
+import { BaseProps } from '../types/model';
 import createClass from '../utils/createClass';
 import uuid from '../utils/uuid';
 
@@ -11,7 +12,7 @@ class BaseModel {
   isEdit = false;
   items: BaseModel[] = [];
 
-  constructor(options: Record<string, any>) {
+  constructor(options: BaseProps) {
     const { name, description, parent } = options;
 
     this.__id = uuid();

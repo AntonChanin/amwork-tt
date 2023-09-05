@@ -1,10 +1,16 @@
 import BaseModel from './BaseModel';
 import GroupModel from './GroupModel';
+import { BoardProps } from '../types/model';
 
 class BoardModel extends BaseModel {
+  
+  override items: GroupModel[] = [];
 
-  constructor(options: Record<string, any>) {
-    const { name, description, parent } = options;
+  constructor(options?: BoardProps) {
+    const { name, description, parent } = options ?? {
+      name: '',
+      description: '',
+    };
     super({ name, description, parent });
   }
 

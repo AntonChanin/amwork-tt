@@ -3,13 +3,17 @@ import { format } from 'date-fns'
 
 import BaseModel from './BaseModel';
 import TagModel from './TagModel ';
+import { CardProps } from '../types/model';
 import { Variant } from '../types/common';
 import uuid from '../utils/uuid';
+
 
 class CardModel extends BaseModel {
   override items: TagModel[] = [];
 
   userId = uuid();
+  
+  avatar = '';
 
   variant: Variant = 'secondary';
 
@@ -17,15 +21,13 @@ class CardModel extends BaseModel {
 
   endDate = faker.date.anytime();
 
-  avatar = '';
-
-  constructor(options: Record<string, any>) {
+  constructor(options: CardProps) {
     const { 
-      name,
-      description,
+      name = '',
+      description = '',
       variant = 'primary',
-      userId,
-      isEdit,
+      userId = '',
+      isEdit = false,
       parent,
       avatar = '',
     } = options;

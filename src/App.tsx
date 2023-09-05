@@ -12,10 +12,10 @@ function App() {
   const { boards } = InstanceTaskManagerStore;
 
   useEffect(() => {
-    InstanceTaskManagerStore.addBoard(new BoardModel({}));
+    InstanceTaskManagerStore.addBoard(new BoardModel());
     if (!InstanceTaskManagerStore.boards[0].items.length)
       InstanceTaskManagerStore.boards[0].addGroup(
-        new GroupModel({ name: 'Today', parent: boards })
+        new GroupModel({ name: 'Today', description: '', parent: boards[0] })
       );
     InstanceTaskManagerStore.getTodo();
   }, [])
